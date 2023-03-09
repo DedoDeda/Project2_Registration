@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/blue_100"
     tools:context=".RegistrationActivity">
 
     <TextView
@@ -12,8 +13,11 @@
         android:layout_height="65dp"
         android:layout_marginTop="80dp"
         android:layout_marginBottom="40dp"
+
+        android:fontFamily="serif"
         android:text="Register"
         android:textSize="50sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/edtxt_username_reg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,16 +27,20 @@
         android:id="@+id/edtxt_password_reg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:layout_marginBottom="20dp"
         android:ems="10"
+        android:fontFamily="serif"
         android:hint="Password"
         android:inputType="textPassword"
+        android:maxLines="3"
         android:minHeight="48dp"
         android:textColorHint="#757575"
         app:layout_constraintBottom_toTopOf="@+id/btn_submit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
+
         app:layout_constraintTop_toBottomOf="@+id/edtxt_phone" />
 
     <Button
@@ -41,7 +49,6 @@
         android:layout_height="48dp"
         android:layout_marginBottom="20dp"
         android:text="Submit"
-
         app:layout_constraintBottom_toTopOf="@+id/edtxt_username_reg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,10 +61,14 @@
         android:layout_marginBottom="20dp"
         android:autofillHints=""
         android:ems="10"
+        android:fontFamily="serif"
         android:hint="Username"
+
         android:inputType="none"
+        android:maxLines="3"
         android:minHeight="48dp"
         android:textColorHint="#757575"
+
         app:layout_constraintBottom_toTopOf="@+id/edtxt_firstname"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
@@ -70,8 +81,11 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:ems="10"
+        android:fontFamily="serif"
         android:hint="Phone"
         android:inputType="phone"
+        android:maxLines="3"
+
         android:minHeight="48dp"
         android:textColorHint="#757575"
         app:layout_constraintBottom_toTopOf="@+id/edtxt_password_reg"
@@ -85,32 +99,42 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
+
         android:ems="10"
+        android:fontFamily="serif"
+
         android:hint="Last Name"
         android:inputType="textPersonName"
+        android:maxLines="3"
         android:minHeight="48dp"
         android:textColorHint="#757575"
         app:layout_constraintBottom_toTopOf="@+id/edtxt_email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
+
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtxt_firstname" />
 
     <EditText
         android:id="@+id/edtxt_firstname"
         android:layout_width="wrap_content"
+
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:ems="10"
+        android:fontFamily="serif"
         android:hint="First Name"
         android:inputType="textPersonName"
+        android:maxLines="3"
         android:minHeight="48dp"
         android:textColorHint="#757575"
         app:layout_constraintBottom_toTopOf="@+id/edtxt_lastname"
         app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtxt_username_reg" />
+
 
     <EditText
         android:id="@+id/edtxt_email"
@@ -118,8 +142,11 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:ems="10"
+        android:fontFamily="serif"
         android:hint="Email"
         android:inputType="textEmailAddress"
+
+        android:maxLines="3"
         android:minHeight="48dp"
         android:textColorHint="#757575"
         app:layout_constraintBottom_toTopOf="@+id/edtxt_phone"

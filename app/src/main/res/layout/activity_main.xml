@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/blue_100"
     tools:context=".MainActivity">
 
     <TextView
@@ -12,8 +13,11 @@
         android:layout_height="65dp"
         android:layout_marginTop="60dp"
         android:layout_marginBottom="40dp"
+        android:fontFamily="serif"
         android:text="User Info"
         android:textSize="50sp"
+
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/edtxt_username_main"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,13 +25,18 @@
 
     <TextView
         android:id="@+id/edtxt_password_main"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:ems="10"
+        android:fontFamily="serif-monospace"
+        android:maxLines="3"
         android:minHeight="48dp"
         android:text="@string/title_password"
         android:textColorHint="#757575"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
@@ -38,13 +47,18 @@
         android:id="@+id/edtxt_username_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:layout_marginBottom="20dp"
         android:autofillHints=""
         android:ems="10"
+        android:fontFamily="serif-monospace"
         android:inputType="none"
+        android:maxLines="3"
         android:minHeight="48dp"
         android:text="@string/title_username"
         android:textColorHint="#757575"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/edtxt_firstname_main"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
@@ -55,11 +69,17 @@
         android:id="@+id/edtxt_phone_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+
         android:layout_marginBottom="20dp"
         android:ems="10"
+        android:fontFamily="serif-monospace"
+        android:maxLines="3"
         android:minHeight="48dp"
         android:text="@string/title_phone"
         android:textColorHint="#757575"
+        android:textSize="20sp"
+
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/edtxt_password_main"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
@@ -72,9 +92,15 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:ems="10"
+        android:fontFamily="serif-monospace"
+        android:maxLines="3"
         android:minHeight="48dp"
+
         android:text="@string/title_lastname"
         android:textColorHint="#757575"
+
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/edtxt_email_main"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
@@ -84,12 +110,18 @@
     <TextView
         android:id="@+id/edtxt_firstname_main"
         android:layout_width="wrap_content"
+
         android:layout_height="wrap_content"
+
         android:layout_marginBottom="20dp"
         android:ems="10"
+        android:fontFamily="serif-monospace"
+        android:maxLines="3"
         android:minHeight="48dp"
         android:text="@string/title_firstname"
         android:textColorHint="#757575"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/edtxt_lastname_main"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
@@ -102,9 +134,15 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:ems="10"
+
+
+        android:fontFamily="serif-monospace"
+        android:maxLines="3"
         android:minHeight="48dp"
         android:text="@string/title_email"
         android:textColorHint="#757575"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/edtxt_phone_main"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -61,6 +62,12 @@ public class RegistrationActivity extends AppCompatActivity {
             showErrorDialog(this, "Username must be filled.");
             return;
         }
+        // Ensure the username isn't already taken.
+        SharedPreferences prefs = getApplication().getSharedPreferences(username, MODE_PRIVATE);
+        if (prefs.getBoolean(PREF_ALREADY_EXISTS, false)) {
+            showErrorDialog(this, "Username already taken.");
+            return;
+        }
 
         String firstName = firstNameEditText.getText().toString();
         if (firstName.isEmpty()) {
@@ -79,21 +86,24 @@ public class RegistrationActivity extends AppCompatActivity {
             showErrorDialog(this, "Email must be filled.");
             return;
         }
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            showErrorDialog(this, "Incorrect email format.");
+            return;
+        }
 
         String phone = phoneEditText.getText().toString();
-        if (phone.isEmpty()) {
-            showErrorDialog(this, "Phone must be filled.");
+        if (phone.length() != 10) {
+            showErrorDialog(this, "Phone must contain 10 characters.");
             return;
         }
 
         String password = passwordEditText.getText().toString();
-        if (password.length() < 4) {
-            showErrorDialog(this, "Password must contain at least 4 characters.");
+        if (password.length() < 6) {
+            showErrorDialog(this, "Password must contain at least 6 characters.");
             return;
         }
 
         // Save to to shared prefs.
-        SharedPreferences prefs = getApplication().getSharedPreferences(username, MODE_PRIVATE);
         SharedPreferences.Editor prefsEd = prefs.edit();
 
         // Mark these prefs as 'already exist'.
