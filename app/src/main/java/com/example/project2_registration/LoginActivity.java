@@ -46,8 +46,9 @@ public class LoginActivity extends AppCompatActivity {
 
         String username = usernameEditText.getText().toString();
         String password = passwordEditText.getText().toString();
-        // Save the data for registration for user convenience.
-        if (!username.isEmpty() && !password.isEmpty()) {
+
+        // Save whatever data the user already inputted.
+        if (!username.isEmpty()) {
             // Check if the user is already registered. If so, just login.
             SharedPreferences prefs = getApplication().getSharedPreferences(username, MODE_PRIVATE);
             if (prefs.contains(PREF_ALREADY_EXISTS)) {
@@ -56,6 +57,8 @@ public class LoginActivity extends AppCompatActivity {
             }
 
             registrationActivityIntent.putExtra(PREF_USERNAME, username);
+        }
+        if (!password.isEmpty()) {
             registrationActivityIntent.putExtra(PREF_PASSWORD, password);
         }
 

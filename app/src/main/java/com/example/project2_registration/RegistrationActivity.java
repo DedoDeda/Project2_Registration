@@ -42,11 +42,12 @@ public class RegistrationActivity extends AppCompatActivity {
 
         // Try to retrieve and set username and password from the previous activity.
         Intent intent = getIntent();
-        if (intent.hasExtra(PREF_USERNAME) && intent.hasExtra(PREF_PASSWORD)) {
+        if (intent.hasExtra(PREF_USERNAME)) {
             String username = intent.getStringExtra(PREF_USERNAME);
-            String password = intent.getStringExtra(PREF_PASSWORD);
-
             usernameEditText.setText(username);
+        }
+        if (intent.hasExtra(PREF_PASSWORD)) {
+            String password = intent.getStringExtra(PREF_PASSWORD);
             passwordEditText.setText(password);
         }
     }
