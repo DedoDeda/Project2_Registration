@@ -7,28 +7,59 @@
     android:background="@color/blue_100"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/txt_userinfo"
-        android:layout_width="wrap_content"
-        android:layout_height="65dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginBottom="40dp"
-        android:fontFamily="serif"
-        android:text="User Info"
-        android:textSize="50sp"
+    <!--    <TextView-->
+    <!--        android:id="@+id/txt_userinfo"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="65dp"-->
+    <!--        android:layout_marginTop="60dp"-->
+    <!--        android:layout_marginBottom="40dp"-->
+    <!--        android:fontFamily="serif"-->
+    <!--        android:text="User Info"-->
+    <!--        android:textSize="50sp"-->
 
-        android:textStyle="bold"
+    <!--        android:textStyle="bold"-->
+    <!--        app:layout_constraintBottom_toTopOf="@+id/edtxt_username_main"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <ImageView
+        android:id="@+id/img_profile_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/profile_img_empty"
         app:layout_constraintBottom_toTopOf="@+id/edtxt_username_main"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_max="150dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_max="150dp" />
+
+    <TextView
+        android:id="@+id/edtxt_phone_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:ems="10"
+        android:fontFamily="serif-monospace"
+        android:maxLines="3"
+        android:minHeight="48dp"
+        android:text="@string/title_phone"
+        android:textColorHint="#757575"
+        android:textSize="20sp"
+
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/edtxt_password_main"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtxt_email_main" />
 
     <TextView
         android:id="@+id/edtxt_password_main"
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
         android:ems="10"
         android:fontFamily="serif-monospace"
         android:maxLines="3"
@@ -39,7 +70,6 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtxt_phone_main" />
 
@@ -48,7 +78,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginBottom="20dp"
         android:autofillHints=""
         android:ems="10"
         android:fontFamily="serif-monospace"
@@ -61,59 +90,14 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/edtxt_firstname_main"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_userinfo" />
-
-    <TextView
-        android:id="@+id/edtxt_phone_main"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_marginBottom="20dp"
-        android:ems="10"
-        android:fontFamily="serif-monospace"
-        android:maxLines="3"
-        android:minHeight="48dp"
-        android:text="@string/title_phone"
-        android:textColorHint="#757575"
-        android:textSize="20sp"
-
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/edtxt_password_main"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtxt_email_main" />
-
-    <TextView
-        android:id="@+id/edtxt_lastname_main"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:ems="10"
-        android:fontFamily="serif-monospace"
-        android:maxLines="3"
-        android:minHeight="48dp"
-
-        android:text="@string/title_lastname"
-        android:textColorHint="#757575"
-
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/edtxt_email_main"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtxt_firstname_main" />
+        app:layout_constraintTop_toBottomOf="@+id/img_profile_main" />
 
     <TextView
         android:id="@+id/edtxt_firstname_main"
         android:layout_width="wrap_content"
 
         android:layout_height="wrap_content"
-
-        android:layout_marginBottom="20dp"
         android:ems="10"
         android:fontFamily="serif-monospace"
         android:maxLines="3"
@@ -124,7 +108,6 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/edtxt_lastname_main"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtxt_username_main" />
 
@@ -132,7 +115,6 @@
         android:id="@+id/edtxt_email_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
         android:ems="10"
 
 
@@ -145,8 +127,26 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/edtxt_phone_main"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtxt_lastname_main" />
+
+    <TextView
+        android:id="@+id/edtxt_lastname_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:fontFamily="serif-monospace"
+        android:maxLines="3"
+        android:minHeight="48dp"
+
+        android:text="@string/title_lastname"
+        android:textColorHint="#757575"
+
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/edtxt_email_main"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtxt_firstname_main" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

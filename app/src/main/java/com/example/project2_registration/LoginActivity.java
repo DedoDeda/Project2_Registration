@@ -14,10 +14,10 @@ import static com.example.project2_registration.Utils.showErrorDialog;
 
 public class LoginActivity extends AppCompatActivity {
 
-    EditText usernameEditText;
-    EditText passwordEditText;
-    Button registerButton;
-    Button loginButton;
+    private EditText usernameEditText;
+    private EditText passwordEditText;
+    private Button registerButton;
+    private Button loginButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

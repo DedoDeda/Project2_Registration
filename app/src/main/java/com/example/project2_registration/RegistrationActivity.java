@@ -1,35 +1,75 @@
 package com.example.project2_registration;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import static com.example.project2_registration.Const.*;
 import static com.example.project2_registration.Utils.showErrorDialog;
 
 public class RegistrationActivity extends AppCompatActivity {
 
-    EditText usernameEditText;
-    EditText firstNameEditText;
-    EditText lastNameEditText;
-    EditText emailEditText;
-    EditText phoneEditText;
-    EditText passwordEditText;
-    Button submitButton;
+    private ImageView profileImageView;
+    private EditText usernameEditText;
+    private EditText firstNameEditText;
+    private EditText lastNameEditText;
+    private EditText emailEditText;
+    private EditText phoneEditText;
+    private EditText passwordEditText;
+    private Button submitButton;
+
+    private ActivityResultLauncher<Void> pickProfileLauncher;
+    /**
+     * Did the user modify the profile picture?
+     */
+    private boolean bModifiedProfileImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
 
+        setupProfileImage();
         setupTexts();
         setupButtons();
+    }
+
+    private void setupProfileImage() {
+        profileImageView = findViewById(R.id.img_profile);
+        profileImageView.setOnClickListener(this::onProfileImageClick);
+        // Allow the user to clear by holding the image.
+        profileImageView.setOnLongClickListener(this::onProfileImageLongClick);
+
+        pickProfileLauncher = registerForActivityResult(
+                new ActivityResultContracts.TakePicturePreview(),
+                this::onPickProfileActivityResult);
+    }
+
+    private void onProfileImageClick(View v) {
+        bModifiedProfileImage = true;
+        pickProfileLauncher.launch(null);
+    }
+
+    private boolean onProfileImageLongClick(View v) {
+        profileImageView.setImageResource(R.drawable.profile_img_empty);
+        return true;
+    }
+
+    private void onPickProfileActivityResult(Bitmap result) {
+        if (result != null) {
+            profileImageView.setImageBitmap(result);
+        }
     }
 
     private void setupTexts() {
@@ -110,6 +150,11 @@ public class RegistrationActivity extends AppCompatActivity {
         // Mark these prefs as 'already exist'.
         prefsEd.putBoolean(PREF_ALREADY_EXISTS, true);
 
+        if (bModifiedProfileImage) {
+            Bitmap profileBitmap = ((BitmapDrawable) profileImageView.getDrawable()).getBitmap();
+            prefsEd.putString(PREF_PROFILE, Utils.saveBitmapToString(profileBitmap));
+        }
+
         prefsEd.putString(PREF_FIRSTNAME, firstName);
         prefsEd.putString(PREF_LASTNAME, lastName);
         prefsEd.putString(PREF_EMAIL, email);
@@ -125,4 +170,5 @@ public class RegistrationActivity extends AppCompatActivity {
         startActivity(mainActivityIntent);
         finish();
     }
+
 }
